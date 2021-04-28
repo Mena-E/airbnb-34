@@ -23,27 +23,31 @@ column1 = dbc.Col(
             """
             ## Select your Features
 
-            """
+            """, className='mb-5'
         ),
         dcc.Markdown('##### Number of Bathrooms'),
             dcc.Slider(id='Bathrooms',
                     min=0,
                     max=15.5,
                     step=0.5,
-                    value=1),
-            dcc.Markdown('',id='Output_Bath',
+                    value=1
+                    ),
+            dcc.Markdown('',id='Output_Bathrooms',
                         style={'textAlign':'center',
-                                'font-size':15}), 
+                                'font-size':20},
+                                className='mb-5'),
 
             dcc.Markdown('##### Number of Bedrooms'),
             dcc.Slider(id='Bedrooms',
                     min=0,
                     max=21,
                     step=1,
-                    value=1),
-            dcc.Markdown('',id='Output_Bathroom',
+                    value=1
+                    ),
+            dcc.Markdown('',id='Output_Bedrooms',
                         style={'textAlign':'center',
-                                'font-size':15})
+                                'font-size':20},
+                                className='mb-5'),
     
     ],
     md=6,
