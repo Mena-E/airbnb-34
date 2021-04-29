@@ -171,30 +171,23 @@ def update_output_div3(input_value):
 def update_output_div4(input_value):
     return 'You have selected: {} accommodations'.format(input_value)
 
-@app.callback(
-    [Input(component_id='property_type', component_property='value')])
-
-@app.callback(
-    [Input(component_id='room_type', component_property='value')])
-
 
 @app.callback(
     Output('prediction-content','value'),
-    [Input('Beds', 'value'),
-    Input('Bedrooms', 'value'),
-    Input('Bathrooms', 'value'),
-    Input('accommodates', 'value'),
+    [
     Input('property_type', 'value'),
     Input('room_type', 'value'),
-
-      
+    Input('accommodates', 'value'),
+    Input('Bathrooms', 'value'),
+    Input('Bedrooms', 'value'),
+    Input('Beds', 'value')
      ])
 
-def predict(beds, bedrooms, bathrooms, accommodates, property_type, room_type):
-    df = pd.DataFrame(columns=['beds', 'bedrooms', 'bathrooms', 'accommodates', 'property_type', 'room_type'],
-    data=[[beds, bedrooms, bathrooms, accommodates, property_type, room_type]])
-    y_pred = model.predict(df)[0]
-    result = round(y_pred, 2)
-    return np.exp(result)
+def predict(property_type, room_type, accommodates, bathrooms, bedrooms, beds):
+    df = pd.DataFrame(columns=["property_type", "room_type", "accommodates", "bathrooms", "bedrooms", "beds"],
+    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds]])
+    y_pred = model.predict(df)[0][0]
+    result = np.exp(y_pred)
+    return np.round(result, 2)
 
 layout = dbc.Row([column1, column2])
