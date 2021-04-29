@@ -26,13 +26,28 @@ column1 = dbc.Col(
 
             """, className='mb-5'
         ),
-        dcc.Markdown('##### Number of Beds'),
+            dcc.Markdown('#### City'),
+            dcc.Dropdown(
+            id='city',
+            options=[
+                {'label': 'Austin','value': 'Austin'},
+                {'label': 'Chicago','value': 'Chicago'},
+                {'label': 'Columbus','value': 'Columbus'},
+                {'label': 'Los Angeles','value': 'Los Angeles'},
+                {'label': 'New York City','value': 'New York City'},
+                {'label': 'San Diego','value': 'San Diego'}
+
+            ],
+            value='Austin'
+        ),
+
+            dcc.Markdown('##### Number of Beds'),
             dcc.Slider(id='Beds',
                     min=0,
-                    max=5,
+                    max=20,
                     step=1,
                     value=0,
-                    marks={n: str(n) for n in range(1,5,1)}
+                    marks={n: str(n) for n in range(1,20,2)}
                     ),
             dcc.Markdown('',id='Output_Beds',
                         style={'textAlign':'center',
@@ -55,10 +70,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Number of Bathrooms'),
             dcc.Slider(id='Bathrooms',
                     min=0,
-                    max=5,
+                    max=10,
                     step=1,
                     value=0,
-                    marks={n: str(n) for n in range(1,5,1)}
+                    marks={n: str(n) for n in range(1,10,1)}
                     ),
             dcc.Markdown('',id='Output_Bathrooms',
                         style={'textAlign':'center',
@@ -68,10 +83,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Accommodates'),
             dcc.Slider(id='accommodates',
                     min=1,
-                    max=16,
+                    max=20,
                     step=1,
                     value=1,
-                    marks={n: str(n) for n in range(1,16,1)}
+                    marks={n: str(n) for n in range(1,20,2)}
                     ),
     
             dcc.Markdown('#### Property type'),
@@ -180,12 +195,13 @@ def update_output_div4(input_value):
     Input('accommodates', 'value'),
     Input('Bathrooms', 'value'),
     Input('Bedrooms', 'value'),
-    Input('Beds', 'value')
-     ])
+    Input('Beds', 'value'),
+    Input('city', 'value')
+    ])
 
-def predict(property_type, room_type, accommodates, bathrooms, bedrooms, beds):
-    df = pd.DataFrame(columns=["property_type", "room_type", "accommodates", "bathrooms", "bedrooms", "beds"],
-    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds]])
+def predict(property_type, room_type, accommodates, bathrooms, bedrooms, beds, city):
+    df = pd.DataFrame(columns=["property_type", "room_type", "accommodates", "bathrooms", "bedrooms", "beds", "city"],
+    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds, city]])
     y_pred = model.predict(df)[0][0]
     result = np.exp(y_pred)
     return np.round(result, 2)
