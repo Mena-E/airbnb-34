@@ -29,10 +29,11 @@ column1 = dbc.Col(
         dcc.Markdown('##### Number of Beds'),
             dcc.Slider(id='Beds',
                     min=0,
-                    max=21,
+                    max=7,
                     step=1,
-                    value=1,
                     marks={n: str(n) for n in range(1,21,1)}
+                    value=0,
+                    marks={n: str(n) for n in range(1,7,1)}
                     ),
             dcc.Markdown('',id='Output_Beds',
                         style={'textAlign':'center',
@@ -42,10 +43,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Number of Bedrooms'),
             dcc.Slider(id='Bedrooms',
                     min=0,
-                    max=21,
+                    max=5,
                     step=1,
-                    value=1,
-                    marks={n: str(n) for n in range(1,21,1)}
+                    value=0,
+                    marks={n: str(n) for n in range(1,5,1)}
                     ),
             dcc.Markdown('',id='Output_Bedrooms',
                         style={'textAlign':'center',
@@ -55,10 +56,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Number of Bathrooms'),
             dcc.Slider(id='Bathrooms',
                     min=0,
-                    max=16,
+                    max=4,
                     step=1,
-                    value=1,
-                    marks={n: str(n) for n in range(1,16,1)}
+                    value=0,
+                    marks={n: str(n) for n in range(1,4,1)}
                     ),
             dcc.Markdown('',id='Output_Bathrooms',
                         style={'textAlign':'center',
@@ -68,10 +69,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Accommodates'),
             dcc.Slider(id='accommodates',
                     min=0,
-                    max=25,
+                    max=8,
                     step=1,
                     value=1,
-                    marks={n: str(n) for n in range(1,25,5)}
+                    marks={n: str(n) for n in range(1,8,1)}
                     ),
     
             dcc.Markdown('#### Property type'),
@@ -148,22 +149,34 @@ column2 = dbc.Col(
 @app.callback(
     Output(component_id='Output_Beds', component_property='children'),
     [Input(component_id='Beds', component_property='value')])
-def update_output_div2(input_value):
+def update_output_div1(input_value):
     return 'You have selected: {} beds'.format(input_value)
 
 
 @app.callback(
     Output(component_id='Output_Bedrooms', component_property='children'),
     [Input(component_id='Bedrooms', component_property='value')])
-def update_output_div(input_value):
+def update_output_div2(input_value):
     return 'You have selected: {} bedrooms'.format(input_value)
 
 
 @app.callback(
     Output(component_id='Output_Bathrooms', component_property='children'),
     [Input(component_id='Bathrooms', component_property='value')])
-def update_output_div2(input_value):
+def update_output_div3(input_value):
     return 'You have selected: {} bathrooms'.format(input_value)
+
+@app.callback(
+    Output(component_id='Output_Accommodates', component_property='children'),
+    [Input(component_id='accommodates', component_property='value')])
+def update_output_div4(input_value):
+    return 'You have selected: {} accommodations'.format(input_value)
+
+@app.callback(
+    [Input(component_id='property_type', component_property='value')])
+
+@app.callback(
+    [Input(component_id='room_type', component_property='value')])
 
 
 @app.callback(
@@ -171,16 +184,16 @@ def update_output_div2(input_value):
     [Input('Beds', 'value'),
     Input('Bedrooms', 'value'),
     Input('Bathrooms', 'value'),
-    Input('Accomodates', 'value'),
-    Input('Property type', 'value'),
-    Input('Room type', 'value'),
+    Input('accommodates', 'value'),
+    Input('property_type', 'value'),
+    Input('room_type', 'value'),
 
       
      ])
 
-def predict(bathrooms, bedrooms, beds, property_type, room_type, accommodates):
-    df = pd.DataFrame(columns=['property_type', 'room_type', 'accommodates', 'bathrooms', 'bedrooms', 'beds'],
-    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds]])
+def predict(beds, bedrooms, bathrooms, accommodates, property_type, room_type):
+    df = pd.DataFrame(columns=['beds', 'bedrooms', 'bathrooms', 'accommodates', 'property_type', 'room_type'],
+    data=[[beds, bedrooms, bathrooms, accommodates, property_type, room_type]])
     y_pred = model.predict(df)[0]
     result = round(y_pred, 2)
     return np.exp(result)
