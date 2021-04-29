@@ -67,7 +67,7 @@ column1 = dbc.Col(
     
             dcc.Markdown('##### Accommodates'),
             dcc.Slider(id='accommodates',
-                    min=0,
+                    min=1,
                     max=16,
                     step=1,
                     value=1,
