@@ -66,23 +66,58 @@ column1 = dbc.Col(
                                 'font-size':20},
                                 className='mb-5'),
     
-            dcc.Markdown('##### Minimum Nights'),
-            dcc.Slider(id='min_nights',
+            dcc.Markdown('##### Accommodates'),
+            dcc.Slider(id='accommodates',
                     min=0,
-                    max=21,
+                    max=25,
                     step=1,
                     value=1,
                     marks={n: str(n) for n in range(1,21,1)}
                     ),
     
-            dcc.Markdown('##### Days Available per year'),
-            dcc.Slider(id='avail_365',
-                    min=0,
-                    max=21,
-                    step=1,
-                    value=1,
-                    marks={n: str(n) for n in range(1,21,1)}
-                    ),
+            dcc.Markdown('#### Property type'),
+            dcc.Dropdown(
+            id='property_type',
+            options=[
+                {'label': 'Apartment','value': 'Apartment'},
+                {'label': 'Guest suite','value': 'Guest suite'},
+                {'label': 'Townhouse','value': 'Townhouse'},
+                {'label': 'Loft','value': 'Loft'},
+                {'label': 'Bed and breakfast','value': 'Bed and breakfast'},
+                {'label': 'Condominium','value': 'Condominium'},
+                {'label': 'House','value': 'House'},
+                {'label': 'Botique hotel','value': 'Botique hotel'},
+                {'label': 'Tiny house','value': 'Tiny house'},
+                {'label': 'Guesthouse','value': 'Guesthouse'},
+                {'label': 'Cabin','value': 'Cabin'},
+                {'label': 'Hostel','value': 'Hostel'},
+                {'label': 'Other','value': 'Other'},
+                {'label': 'Resort','value': 'Resort'},
+                {'label': 'Boat','value': 'Boat'},
+                {'label': 'Serviced apartment','value': 'Serviced apartment'},
+                {'label': 'Earth house','value': 'Earth house'},
+                {'label': 'Bungalow','value': 'Bungalow'},
+                {'label': 'Cottage','value': 'Cottage'},
+                {'label': 'Aparthotel','value': 'Aparthotel'},
+                {'label': 'Villa','value': 'Villa'},
+                {'label': 'Cave','value': 'Cave'},
+                {'label': 'Hotel','value': 'Hotel'},
+                {'label': 'Houseboat','value': 'Houseboat'},
+                {'label': 'Castle','value': 'Castle'},
+                {'label': 'Tent','value': 'Tent'},
+                {'label': 'Camper/RV','value': 'Camper/RV'},
+                {'label': 'Bus','value': 'Bus'},
+                {'label': 'Dome house','value': 'Dome house'},
+                {'label': 'Farm stay','value': 'Farm stay'},
+                {'label': 'Casa particular (Cuba)','value': 'Casa particular (Cuba)'},
+                {'label': 'Dorm','value': 'Dorm'},
+                {'label': 'Island','value': 'Island'},
+                {'label': 'Yurt','value': 'Yurt'},
+                {'label': 'Barn','value': 'Barn'},
+                
+            ],
+            value='Apartment'
+        )
 
             dcc.Markdown('#### Room Type'),
             dcc.Dropdown(
@@ -136,7 +171,11 @@ def update_output_div2(input_value):
     Output('prediction-content','value'),
     [Input('Beds', 'value'),
     Input('Bedrooms', 'value'),
-    Input('Bathrooms', 'value')
+    Input('Bathrooms', 'value'),
+    Input('Accomodates', 'value'),
+    Input('Property type', 'value'),
+    Input('Room type', 'value'),
+
       
      ])
 
