@@ -38,7 +38,7 @@ column1 = dbc.Col(
                 {'label': 'San Diego','value': 'San Diego'}
 
             ],
-            value='Austin'
+            value='Austin',className='mb-5'
         ),
 
             dcc.Markdown('##### Number of Beds'),
@@ -50,8 +50,8 @@ column1 = dbc.Col(
                     marks={n: str(n) for n in range(1,20,2)}
                     ),
             dcc.Markdown('',id='Output_Beds',
-                        style={'textAlign':'center',
-                                'font-size':20},
+                        style={'textAlign':'left',
+                                'font-size':18},
                                 className='mb-5'),
 
             dcc.Markdown('##### Number of Bedrooms'),
@@ -63,8 +63,8 @@ column1 = dbc.Col(
                     marks={n: str(n) for n in range(1,10,1)}
                     ),
             dcc.Markdown('',id='Output_Bedrooms',
-                        style={'textAlign':'center',
-                                'font-size':20},
+                        style={'textAlign':'left',
+                                'font-size':18},
                                 className='mb-5'),
 
             dcc.Markdown('##### Number of Bathrooms'),
@@ -76,8 +76,8 @@ column1 = dbc.Col(
                     marks={n: str(n) for n in range(1,10,1)}
                     ),
             dcc.Markdown('',id='Output_Bathrooms',
-                        style={'textAlign':'center',
-                                'font-size':20},
+                        style={'textAlign':'left',
+                                'font-size':18},
                                 className='mb-5'),
     
             dcc.Markdown('##### Accommodates'),
@@ -88,6 +88,10 @@ column1 = dbc.Col(
                     value=1,
                     marks={n: str(n) for n in range(1,20,2)}
                     ),
+            dcc.Markdown('',id='Output_Accommodates',
+                        style={'textAlign':'left',
+                                'font-size':18},
+                                className='mb-5'),
     
             dcc.Markdown('#### Property type'),
             dcc.Dropdown(
@@ -130,7 +134,7 @@ column1 = dbc.Col(
                 {'label': 'Barn','value': 'Barn'},
                 
             ],
-            value='Apartment'
+            value='Apartment',className='mb-5'
         ),
 
             dcc.Markdown('#### Room Type'),
@@ -142,7 +146,7 @@ column1 = dbc.Col(
                 {'label': 'Shared room','value': 'Shared room'},
                 {'label': 'Hotel room','value': 'Hotel room'}
             ],
-            value='Entire home/apt'
+            value='Entire home/apt',className='mb-5'
         )
 
     ],
@@ -156,7 +160,7 @@ column2 = dbc.Col(
             id='prediction-content',
             size=25,
             color="#42f55d"),
-            html.Img(src='assets/airbnb_pic2.jpg', className='img-fluid')
+            html.Img(src='assets/airbnb_pic7.jpg', className='img-fluid')
     ]
 )
 
