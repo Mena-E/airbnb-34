@@ -6,6 +6,7 @@ import dash_daq as daq
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import pandas as pd
+import numpy as np
 from joblib import load
 
 # Imports from this application
@@ -144,7 +145,7 @@ def predict(bathrooms, bedrooms, beds, property_type, room_type, accommodates):
     data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds]])
     df = ohe.transform(df_)
     y_pred = model.predict(df)[0]
-    result = round(y_pred, 2)
+    result = round(np.exp(y_pred), 2)
     return result
 
 layout = dbc.Row([column1, column2])
