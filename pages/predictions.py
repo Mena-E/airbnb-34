@@ -25,30 +25,47 @@ column1 = dbc.Col(
 
             """, className='mb-5'
         ),
-        dcc.Markdown('##### Number of Bathrooms'),
-            dcc.Slider(id='Bathrooms',
-                    min=0,
-                    max=15.5,
-                    step=0.5,
-                    value=1
-                    ),
-            dcc.Markdown('',id='Output_Bathrooms',
-                        style={'textAlign':'center',
-                                'font-size':20},
-                                className='mb-5'),
-
             dcc.Markdown('##### Number of Bedrooms'),
             dcc.Slider(id='Bedrooms',
                     min=0,
                     max=21,
                     step=1,
-                    value=1
+                    value=2,
+                    marks={
+                        0:'0',
+                        3:'3',
+                        6:'6',
+                        9:'9',
+                        12:'12',
+                        15:'15',
+                        18:'18',
+                        21:'21'
+                    }
                     ),
             dcc.Markdown('',id='Output_Bedrooms',
-                        style={'textAlign':'center',
-                                'font-size':20},
+                        style={'textAlign':'left',
+                                'font-size':18},
                                 className='mb-5'),
-    
+                                
+        dcc.Markdown('##### Number of Bathrooms'),
+            dcc.Slider(id='Bathrooms',
+                    min=0,
+                    max=15.5,
+                    step=0.5,
+                    value=2,
+                    marks={
+                        0:'0',
+                        4:'4.0',
+                        8:'8.0',
+                        12:'12.0',
+                        16:'16.0'
+                    },
+                    ),
+            dcc.Markdown('',id='Output_Bathrooms',
+                        style={'textAlign':'left',
+                                'font-size':18},
+                                className='mb-5'),
+
     ],
     md=6,
 )
@@ -85,9 +102,9 @@ def update_output_div2(input_value):
       Input('Bedrooms', 'value')
      ])
 
-def predict(bathrooms, bedrooms):
-    df = pd.DataFrame(columns=['bathrooms','bedrooms'],
-    data=[[bathrooms, bedrooms]])
+def predict(bedrooms, bathrooms):
+    df = pd.DataFrame(columns=['bedrooms', 'bathrooms'],
+    data=[[bedrooms, bathrooms]])
     y_pred = model.predict(df)[0]
     result = round(y_pred, 2)
     return result
