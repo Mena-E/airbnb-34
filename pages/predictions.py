@@ -11,7 +11,8 @@ from joblib import load
 # Imports from this application
 from app import app
 
-model = load('assets/model.joblib')
+model = load('assets/final_model.joblib')
+ohe = load('assets/ohe.joblib')
 
 
 
@@ -138,9 +139,10 @@ def update_output_div2(input_value):
       
      ])
 
-def predict(bathrooms, bedrooms):
-    df = pd.DataFrame(columns=['bathrooms','bedrooms'],
-    data=[[bathrooms, bedrooms]])
+def predict(bathrooms, bedrooms, beds, property_type, room_type, accommodates):
+    df_ = pd.DataFrame(columns=['property_type', 'room_type', 'accommodates', 'bathrooms', 'bedrooms', 'beds'],
+    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds]])
+    df = ohe.transform(df_)
     y_pred = model.predict(df)[0]
     result = round(y_pred, 2)
     return result
