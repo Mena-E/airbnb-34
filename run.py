@@ -15,8 +15,7 @@ navbar = dbc.NavbarSimple(
     brand_href='/', 
     children=[
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
+        dbc.NavItem(dcc.Link('About', href='/about', className='nav-link')), 
     ],
     sticky='top',
     color='primary', 
@@ -36,10 +35,12 @@ footer = dbc.Container(
             html.P(
                 [
                     html.Span('Track Team Nine', className='mr-2'), 
-                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:odemena@me.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Mena-E/airbnb-34'), 
-                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/mena-ekelemu/'), 
-                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/m_ekelemu'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Mena-E'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com//Jack4589'),
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/hillarykhan'),
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/israelaikulola'),
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Abdelapv53'), 
+                
                 ], 
                 className='lead'
             )
@@ -68,10 +69,8 @@ def display_page(pathname):
         return index.layout
     elif pathname == '/predictions':
         return predictions.layout
-    elif pathname == '/insights':
-        return insights.layout
-    elif pathname == '/process':
-        return process.layout
+    elif pathname == '/about':
+        return about.layout
     else:
         return dcc.Markdown('## Page not found')
 
