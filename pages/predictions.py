@@ -12,7 +12,7 @@ from joblib import load
 # Imports from this application
 from app import app
 
-model = load('assets/final_model.joblib')
+model = load('assets/final_model2.joblib')
 
 
 
