@@ -12,16 +12,11 @@ from app import app
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 column1 = dbc.Col(
     [
-        dcc.Markdown(
-            """
-        
-            ## Insights
+        dcc.Markdown('##### Creators of the app'),
+        dcc.Markdown('#test'),
+        dcc.Markdown('test github'),
+        dcc.Markdown('test linkedin')
 
-
-            """
-        ),
-
-    ],
-)
+    ])
 
 layout = dbc.Row([column1])
