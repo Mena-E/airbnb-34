@@ -25,46 +25,74 @@ column1 = dbc.Col(
 
             """, className='mb-5'
         ),
+        dcc.Markdown('##### Number of Beds'),
+            dcc.Slider(id='Beds',
+                    min=0,
+                    max=21,
+                    step=1,
+                    value=0,
+                    marks={n: str(n) for n in range(1,21,1)}
+                    ),
+            dcc.Markdown('',id='Output_Beds',
+                        style={'textAlign':'center',
+                                'font-size':20},
+                                className='mb-5'),
+
             dcc.Markdown('##### Number of Bedrooms'),
             dcc.Slider(id='Bedrooms',
                     min=0,
                     max=21,
                     step=1,
-                    value=2,
-                    marks={
-                        0:'0',
-                        3:'3',
-                        6:'6',
-                        9:'9',
-                        12:'12',
-                        15:'15',
-                        18:'18',
-                        21:'21'
-                    }
+                    value=1,
+                    marks={n: str(n) for n in range(1,21,1)}
                     ),
             dcc.Markdown('',id='Output_Bedrooms',
-                        style={'textAlign':'left',
-                                'font-size':18},
+                        style={'textAlign':'center',
+                                'font-size':20},
                                 className='mb-5'),
 
-        dcc.Markdown('##### Number of Bathrooms'),
+            dcc.Markdown('##### Number of Bathrooms'),
             dcc.Slider(id='Bathrooms',
                     min=0,
-                    max=15.5,
-                    step=0.5,
-                    value=2,
-                    marks={
-                        0:'0',
-                        4:'4.0',
-                        8:'8.0',
-                        12:'12.0',
-                        16:'16.0'
-                    },
+                    max=16,
+                    step=1,
+                    value=1,
+                    marks={n: str(n) for n in range(1,16,1)}
                     ),
             dcc.Markdown('',id='Output_Bathrooms',
-                        style={'textAlign':'left',
-                                'font-size':18},
+                        style={'textAlign':'center',
+                                'font-size':20},
                                 className='mb-5'),
+    
+            dcc.Markdown('##### Minimum Nights'),
+            dcc.Slider(id='min_nights',
+                    min=0,
+                    max=21,
+                    step=1,
+                    value=1,
+                    marks={n: str(n) for n in range(1,21,1)}
+                    ),
+    
+            dcc.Markdown('##### Days Available per year'),
+            dcc.Slider(id='avail_365',
+                    min=0,
+                    max=21,
+                    step=1,
+                    value=1,
+                    marks={n: str(n) for n in range(1,21,1)}
+                    ),
+
+            dcc.Markdown('#### Room Type'),
+            dcc.Dropdown(
+            id='room_type',
+            options=[
+                {'label': 'Entire home/apt','value': 'Entire home/apt'},
+                {'label': 'Private room','value': 'Private room'},
+                {'label': 'Shared room','value': 'Shared room'},
+                {'label': 'Hotel room','value': 'Hotel room'}
+            ],
+            value='Entire home/apt'
+        )
 
     ],
     md=6,
@@ -77,34 +105,42 @@ column2 = dbc.Col(
             id='prediction-content',
             size=25,
             color="#42f55d"),
-            html.Img(src='assets/airbnb_pic7.jpg', className='img-fluid')
+            html.Img(src='assets/airbnb_pic2.jpg', className='img-fluid')
     ]
 )
 
-
 @app.callback(
-    Output(component_id='Output_Bathrooms', component_property='children'),
-    [Input(component_id='Bathrooms', component_property='value')])
-def update_output_div(input_value):
-    return 'You have selected: {} bathrooms'.format(input_value)
+    Output(component_id='Output_Beds', component_property='children'),
+    [Input(component_id='Beds', component_property='value')])
+def update_output_div2(input_value):
+    return 'You have selected: {} beds'.format(input_value)
 
 
 @app.callback(
     Output(component_id='Output_Bedrooms', component_property='children'),
     [Input(component_id='Bedrooms', component_property='value')])
-def update_output_div2(input_value):
+def update_output_div(input_value):
     return 'You have selected: {} bedrooms'.format(input_value)
 
 
 @app.callback(
+    Output(component_id='Output_Bathrooms', component_property='children'),
+    [Input(component_id='Bathrooms', component_property='value')])
+def update_output_div2(input_value):
+    return 'You have selected: {} bathrooms'.format(input_value)
+
+
+@app.callback(
     Output('prediction-content','value'),
-    [ Input('Bathrooms', 'value'),
-      Input('Bedrooms', 'value')
+    [Input('Beds', 'value'),
+    Input('Bedrooms', 'value'),
+    Input('Bathrooms', 'value')
+      
      ])
 
-def predict(bedrooms, bathrooms):
-    df = pd.DataFrame(columns=['bedrooms', 'bathrooms'],
-    data=[[bedrooms, bathrooms]])
+def predict(bathrooms, bedrooms):
+    df = pd.DataFrame(columns=['bathrooms','bedrooms'],
+    data=[[bathrooms, bedrooms]])
     y_pred = model.predict(df)[0]
     result = round(y_pred, 2)
     return result
