@@ -46,7 +46,7 @@ column1 = dbc.Col(
                         style={'textAlign':'left',
                                 'font-size':18},
                                 className='mb-5'),
-                                
+
         dcc.Markdown('##### Number of Bathrooms'),
             dcc.Slider(id='Bathrooms',
                     min=0,
@@ -77,7 +77,7 @@ column2 = dbc.Col(
             id='prediction-content',
             size=25,
             color="#42f55d"),
-            html.Img(src='assets/airbnb_pic2.jpg', className='img-fluid')
+            html.Img(src='assets/airbnb_pic4.jpg', className='img-fluid')
     ]
 )
 
