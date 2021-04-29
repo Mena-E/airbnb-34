@@ -18,13 +18,18 @@ column1 = dbc.Col(
         
             ## Maximize your Airbnb income
 
-            Are you an Airbnb property owner? Do you spend a lot of time trying to figure out how much to charge your guests?
+            Are you an Airbnb property owner? 
+            Do you spend a lot of time trying to figure out how much to charge 
+            your guests?
             
-            Airbnb Predictor is a running app that can help you set the best price for your property, minimize property vacancy, and maximize your profits.
+            Airbnb Predictor is a running app that can help you set the best 
+            price for your property, minimize property vacancy, and maximize 
+            your profits.
 
             """
         ),
-        dcc.Link(dbc.Button('Try out the Predictor', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('Try out the Predictor', color='primary'),
+                 href='/predictions')
     ],
     md=4,
 )

@@ -9,12 +9,14 @@ from dash.dependencies import Input, Output
 from app import app, server
 from pages import index, predictions, about
 
-# Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
+# Navbar docs:
+# https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
     brand='Airbnb Predictor',
     brand_href='/', 
     children=[
-        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Predictions', href='/predictions',
+                             className='nav-link')),
         dbc.NavItem(dcc.Link('About', href='/about', className='nav-link')), 
     ],
     sticky='top',
@@ -24,7 +26,8 @@ navbar = dbc.NavbarSimple(
 )
 
 # Footer docs:
-# dbc.Container, dbc.Row, dbc.Col: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+# dbc.Container, dbc.Row, dbc.Col:
+# https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 # html.P: https://dash.plot.ly/dash-html-components
 # fa (font awesome) : https://fontawesome.com/icons/github-square?style=brands
 # mr (margin right) : https://getbootstrap.com/docs/4.3/utilities/spacing/
@@ -35,11 +38,16 @@ footer = dbc.Container(
             html.P(
                 [
                     html.Span('Track Team Nine', className='mr-2'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Mena-E'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com//Jack4589'),
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/hillarykhan'),
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/israelaikulola'),
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Abdelapv53'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'),
+                           href='https://github.com/Mena-E'),
+                    html.A(html.I(className='fab fa-github-square mr-1'),
+                           href='https://github.com//Jack4589'),
+                    html.A(html.I(className='fab fa-github-square mr-1'),
+                           href='https://github.com/hillarykhan'),
+                    html.A(html.I(className='fab fa-github-square mr-1'),
+                           href='https://github.com/israelaikulola'),
+                    html.A(html.I(className='fab fa-github-square mr-1'),
+                           href='https://github.com/Abdelapv53'),
                 
                 ], 
                 className='lead'
@@ -51,7 +59,8 @@ footer = dbc.Container(
 # Layout docs:
 # html.Div: https://dash.plot.ly/getting-started
 # dcc.Location: https://dash.plot.ly/dash-core-components/location
-# dbc.Container: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+# dbc.Container:
+# https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False), 
     navbar, 
@@ -73,6 +82,7 @@ def display_page(pathname):
         return about.layout
     else:
         return dcc.Markdown('## Page not found')
+
 
 # Run app server: https://dash.plot.ly/getting-started
 if __name__ == '__main__':
