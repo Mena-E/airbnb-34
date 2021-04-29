@@ -31,7 +31,6 @@ column1 = dbc.Col(
                     min=0,
                     max=7,
                     step=1,
-                    marks={n: str(n) for n in range(1,21,1)}
                     value=0,
                     marks={n: str(n) for n in range(1,7,1)}
                     ),
