@@ -31,7 +31,7 @@ column1 = dbc.Col(
                     min=0,
                     max=21,
                     step=1,
-                    value=0,
+                    value=1,
                     marks={n: str(n) for n in range(1,21,1)}
                     ),
             dcc.Markdown('',id='Output_Beds',
@@ -71,7 +71,7 @@ column1 = dbc.Col(
                     max=25,
                     step=1,
                     value=1,
-                    marks={n: str(n) for n in range(1,21,1)}
+                    marks={n: str(n) for n in range(1,25,5)}
                     ),
     
             dcc.Markdown('#### Property type'),
@@ -116,7 +116,7 @@ column1 = dbc.Col(
                 
             ],
             value='Apartment'
-        )
+        ),
 
             dcc.Markdown('#### Room Type'),
             dcc.Dropdown(
