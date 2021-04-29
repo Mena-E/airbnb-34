@@ -1,13 +1,13 @@
 # AirBnB booking price calculator
 
-This app uses a machine learning model trained on over 50,000 different 
-AirBnB listings to determine the best price for you to list your AirBnB 
+This app uses a machine learning model trained on over 120,000 different 
+AirBnB listings from to determine the best price for you to list your AirBnB 
 accommodations.
 
 ## Description
 
 This repo is intended to be deployed as a Heroku web app. Due to this, 
-there's no need for installation or dependencies. Simply navigate to ______ 
+there's no need for installation or dependencies. Simply navigate [here](https://estimatemyairbnb.herokuapp.com/) 
 to use our app. If you wish to use this repo yourself, the requirements are 
 listed in the pipfiles and requirements.txt.
 
@@ -17,7 +17,7 @@ After launching the webapp, or at our deployed Heroku version, you'll be
 prompted with several fields to fill out according to the various 
 datapoints about your listing, such as number of bedrooms, number of 
 bathrooms, etc. After filling in the fields accordingly, a recommended 
-price will be displayed based on over _____ listings in ____ cites across 
+price will be displayed based on over 120,000 listings in six major cities across 
 the United States.
 
 ## Authors
