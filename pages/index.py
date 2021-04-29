@@ -20,7 +20,7 @@ column1 = dbc.Col(
 
             Are you an Airbnb property owner? Do you spend a lot of time trying to figure out how much to charge your guests?
             
-            Airbnb Predictor is a running app that can help you set the best price for your your property, minimize property vacancy, and maximize your profits.
+            Airbnb Predictor is a running app that can help you set the best price for your property, minimize property vacancy, and maximize your profits.
 
             """
         ),
