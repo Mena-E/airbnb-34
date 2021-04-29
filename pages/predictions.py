@@ -12,7 +12,7 @@ from joblib import load
 # Imports from this application
 from app import app
 
-model = load('assets/final_model.joblib')
+model = load('assets/final_model2.joblib')
 
 
 
@@ -183,9 +183,9 @@ def update_output_div4(input_value):
     Input('Beds', 'value')
      ])
 
-def predict(property_type, room_type, accommodates, bathrooms, bedrooms, beds):
-    df = pd.DataFrame(columns=["property_type", "room_type", "accommodates", "bathrooms", "bedrooms", "beds"],
-    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds]])
+def predict(property_type, room_type, accommodates, bathrooms, bedrooms, beds, city):
+    df = pd.DataFrame(columns=["property_type", "room_type", "accommodates", "bathrooms", "bedrooms", "beds", "city"],
+    data=[[property_type, room_type, accommodates, bathrooms, bedrooms, beds, city]])
     y_pred = model.predict(df)[0][0]
     result = np.exp(y_pred)
     return np.round(result, 2)
