@@ -77,7 +77,7 @@ column2 = dbc.Col(
             id='prediction-content',
             size=25,
             color="#42f55d"),
-            html.Img(src='assets/airbnb_pic4.jpg', className='img-fluid')
+            html.Img(src='assets/airbnb_pic7.jpg', className='img-fluid')
     ]
 )
 
