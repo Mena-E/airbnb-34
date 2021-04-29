@@ -29,10 +29,10 @@ column1 = dbc.Col(
         dcc.Markdown('##### Number of Beds'),
             dcc.Slider(id='Beds',
                     min=0,
-                    max=7,
+                    max=5,
                     step=1,
                     value=0,
-                    marks={n: str(n) for n in range(1,7,1)}
+                    marks={n: str(n) for n in range(1,5,1)}
                     ),
             dcc.Markdown('',id='Output_Beds',
                         style={'textAlign':'center',
@@ -42,10 +42,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Number of Bedrooms'),
             dcc.Slider(id='Bedrooms',
                     min=0,
-                    max=5,
+                    max=10,
                     step=1,
                     value=0,
-                    marks={n: str(n) for n in range(1,5,1)}
+                    marks={n: str(n) for n in range(1,10,1)}
                     ),
             dcc.Markdown('',id='Output_Bedrooms',
                         style={'textAlign':'center',
@@ -55,10 +55,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Number of Bathrooms'),
             dcc.Slider(id='Bathrooms',
                     min=0,
-                    max=4,
+                    max=5,
                     step=1,
                     value=0,
-                    marks={n: str(n) for n in range(1,4,1)}
+                    marks={n: str(n) for n in range(1,5,1)}
                     ),
             dcc.Markdown('',id='Output_Bathrooms',
                         style={'textAlign':'center',
@@ -68,10 +68,10 @@ column1 = dbc.Col(
             dcc.Markdown('##### Accommodates'),
             dcc.Slider(id='accommodates',
                     min=0,
-                    max=8,
+                    max=16,
                     step=1,
                     value=1,
-                    marks={n: str(n) for n in range(1,8,1)}
+                    marks={n: str(n) for n in range(1,16,1)}
                     ),
     
             dcc.Markdown('#### Property type'),
