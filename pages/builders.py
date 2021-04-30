@@ -24,7 +24,7 @@ column1 = dbc.Col(
         ), 
         html.P(
                 [
-                    html.Img(src='assets/israel.jpeg', className='img-fluid') 
+                    html.Img(src='assets/Israel.jpeg', className='img-fluid') 
                 ], 
                 className='mb-5'
         ),
