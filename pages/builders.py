@@ -12,9 +12,9 @@ from app import app
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 column1 = dbc.Col(
     [
-        dcc.Markdown('## Team Members', className='mb-10'),
+        dcc.Markdown('## Airbnb Predictor App Team', className='mb-10'),
         dcc.Markdown('', className='mb-5'),
-        dcc.Markdown('### Dr Israel Aikulola, Data Science - Modelling', className='mb-2'),
+        dcc.Markdown('#### Dr Israel Aikulola, Data Science - Modelling', className='mb-2'),
         html.P(
                 [
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/israelaikulola/'), 
@@ -29,7 +29,7 @@ column1 = dbc.Col(
                 className='mb-5'
         ),
 
-        dcc.Markdown('### Mena Ekelemu, Data Science - Web Deployment', className='mb-2'),
+        dcc.Markdown('#### Mena Ekelemu, Data Science - Web Deployment', className='mb-2'),
         html.P(
                 [
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Mena-E/'), 
@@ -44,7 +44,7 @@ column1 = dbc.Col(
                 className='mb-5'
         ),
 
-        dcc.Markdown('### Hillary Khan, Data Science - Modelling', className='mb-2'),
+        dcc.Markdown('#### Hillary Khan, Data Science - Modelling', className='mb-2'),
         html.P(
                 [
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/hillarykhan/'), 
@@ -59,7 +59,7 @@ column1 = dbc.Col(
                 className='mb-5'
         ),
 
-        dcc.Markdown('### Jack Stanley, Data Science - Web Deployment', className='mb-2'),
+        dcc.Markdown('#### Jack Stanley, Data Science - Web Deployment', className='mb-2'),
         html.P(
                 [
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Jack4589/'), 
@@ -74,7 +74,7 @@ column1 = dbc.Col(
                 className='mb-5'
         ),
 
-        dcc.Markdown('### Allen Dela Virgen, Data Science - Web Deployment', className='mb-2'),
+        dcc.Markdown('#### Allen Dela Virgen, Data Science - Web Deployment', className='mb-2'),
         html.P(
                 [
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/Abdelapv53/'), 

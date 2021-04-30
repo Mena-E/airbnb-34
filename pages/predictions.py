@@ -39,7 +39,7 @@ column1 = dbc.Col(
             value='Austin', className='mb-5'
         ),
 
-        dcc.Markdown('##### Number of Beds'),
+        dcc.Markdown('#### Number of Beds'),
         dcc.Slider(id='Beds',
                    min=0,
                    max=20,
@@ -52,7 +52,7 @@ column1 = dbc.Col(
                             'font-size': 18},
                      className='mb-5'),
 
-        dcc.Markdown('##### Number of Bedrooms'),
+        dcc.Markdown('#### Number of Bedrooms'),
         dcc.Slider(id='Bedrooms',
                    min=0,
                    max=10,
@@ -65,7 +65,7 @@ column1 = dbc.Col(
                             'font-size': 18},
                      className='mb-5'),
 
-        dcc.Markdown('##### Number of Bathrooms'),
+        dcc.Markdown('#### Number of Bathrooms'),
         dcc.Slider(id='Bathrooms',
                    min=0,
                    max=10,
@@ -78,7 +78,7 @@ column1 = dbc.Col(
                             'font-size': 18},
                      className='mb-5'),
 
-        dcc.Markdown('##### Accommodates'),
+        dcc.Markdown('#### Accommodates'),
         dcc.Slider(id='accommodates',
                    min=1,
                    max=20,
