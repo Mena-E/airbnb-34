@@ -7,7 +7,7 @@ accommodations.
 ## Description
 
 This repo is intended to be deployed as a Heroku web app. Due to this, 
-there's no need for installation or dependencies. Simply navigate [here](https://estimatemyairbnb.herokuapp.com/) 
+there's no need for installation or dependencies. Simply navigate [here](https://airbnb-34.herokuapp.com/) 
 to use our app. If you wish to use this repo yourself, the requirements are 
 listed in the pipfiles and requirements.txt.
 
