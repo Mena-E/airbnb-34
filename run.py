@@ -39,16 +39,8 @@ footer = dbc.Container(
                 [
                     html.Span('Track Team Nine', className='mr-2'), 
                     html.A(html.I(className='fab fa-github-square mr-1'),
-                           href='https://github.com/Mena-E'),
-                    html.A(html.I(className='fab fa-github-square mr-1'),
-                           href='https://github.com//Jack4589'),
-                    html.A(html.I(className='fab fa-github-square mr-1'),
-                           href='https://github.com/hillarykhan'),
-                    html.A(html.I(className='fab fa-github-square mr-1'),
-                           href='https://github.com/israelaikulola'),
-                    html.A(html.I(className='fab fa-github-square mr-1'),
-                           href='https://github.com/Abdelapv53'),
-                
+                           href='https://github.com/Mena-E/airbnb-34'),
+                    
                 ], 
                 className='lead'
             )
