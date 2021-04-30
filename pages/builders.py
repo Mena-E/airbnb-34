@@ -37,12 +37,12 @@ column1 = dbc.Col(
              
                 ]
         ), 
-        html.P(
-                [
-                    html.Img(src='assets/mena.jpeg', className='img-fluid') 
-                ], 
-                className='mb-5'
-        ),
+        # html.P(
+        #         [
+        #             html.Img(src='assets/mena.jpeg', className='img-fluid') 
+        #         ], 
+        #         className='mb-5'
+        # ),
 
         dcc.Markdown('### Hillary Khan', className='mb-2'),
         html.P(
