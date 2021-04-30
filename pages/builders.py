@@ -24,7 +24,7 @@ column1 = dbc.Col(
         ), 
         html.P(
                 [
-                    html.Img(src='assets/israel.jpeg', className='img-fluid') 
+                    html.Img(src='assets/Israel.jpeg', className='img-fluid', height=600, width=600) 
                 ], 
                 className='mb-5'
         ),
@@ -39,7 +39,7 @@ column1 = dbc.Col(
         ), 
         html.P(
                 [
-                    html.Img(src='assets/mena.jpeg', className='img-fluid') 
+                    html.Img(src='assets/mena.jpeg', className='img-fluid', height=600, width=600) 
                 ], 
                 className='mb-5'
         ),
@@ -54,7 +54,7 @@ column1 = dbc.Col(
         ), 
         html.P(
                 [
-                    html.Img(src='assets/Hillary.jpeg', className='img-fluid') 
+                    html.Img(src='assets/Hillary.jpeg', className='img-fluid', height=600, width=600) 
                 ], 
                 className='mb-5'
         ),
@@ -69,7 +69,7 @@ column1 = dbc.Col(
         ), 
         html.P(
                 [
-                    html.Img(src='assets/jack.jpeg', className='img-fluid') 
+                    html.Img(src='assets/jack.jpeg', className='img-fluid', height=600, width=600) 
                 ], 
                 className='mb-5'
         ),
@@ -84,7 +84,7 @@ column1 = dbc.Col(
         ), 
         html.P(
                 [
-                    html.Img(src='assets/allen.jpeg', className='img-fluid') 
+                    html.Img(src='assets/allen.jpeg', className='img-fluid', height=600, width=600) 
                 ]
         )
 
