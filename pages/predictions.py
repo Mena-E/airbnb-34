@@ -217,3 +217,6 @@ def predict(property_type, room_type, accommodates, bathrooms, bedrooms, beds,
 
 
 layout = dbc.Row([column1, column2])
+
+
+

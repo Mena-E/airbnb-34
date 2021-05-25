@@ -1,7 +1,7 @@
 # AirBnB booking price calculator
 
 This app uses a machine learning model trained on over 120,000 different 
-AirBnB listings from to determine the best price for you to list your AirBnB 
+AirBnB listings to determine the best price for you to list your AirBnB 
 accommodations.
 
 ## Description
